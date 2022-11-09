@@ -1,5 +1,7 @@
 //Index is root file
 const inquirer = require('inquirer');
+import {Manager, Engineer, Intern} from './member.js';
+const employeeList = [];
 
 function managerPrompt(){
     inquirer.prompt([
@@ -25,6 +27,11 @@ function managerPrompt(){
             type:'input',
         },
     ])
+    .then(function(answer) {
+        let M = new Manager(answer.name, answer.id, answer.email, answer.office);
+
+        employeeList.push(M);
+    })
 }
 
 function engineerPrompt(){
@@ -51,6 +58,11 @@ function engineerPrompt(){
             type:'input',
         },
     ])
+    .then(function(answer) {
+        let E = new Engineer(answer.name, answer.id, answer.email, answer.github);
+
+        employeeList.push(E);
+    })
     
 }
 
@@ -78,6 +90,11 @@ function internPrompt(){
             type:'input',
         },
     ])
+    .then(function(answer) {
+        let I = new Intern(answer.name, answer.id, answer.email, answer.school);
+
+        employeeList.push(I);
+    })
     
 }
 
