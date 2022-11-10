@@ -20,7 +20,7 @@ test('Manager object instantiates with its extended property', () => {
 })
 
 test('Engineer object instantiates with its extended property', () => {
-    const github = jeffhub;
+    const github = 'jeffhub';
 
     let jeff = new Engineer(name, id, email, github)
 
@@ -28,7 +28,7 @@ test('Engineer object instantiates with its extended property', () => {
 })
 
 test('Intern object instantiates with its extended property', () => {
-    const school = jeffacademy;
+    const school = 'jeffacademy';
 
     let jeff = new Engineer(name, id, email, school)
 
