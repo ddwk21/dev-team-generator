@@ -30,7 +30,7 @@ test('Engineer object instantiates with its extended property', () => {
 test('Intern object instantiates with its extended property', () => {
     const school = 'jeffacademy';
 
-    let jeff = new Engineer(name, id, email, school)
+    let jeff = new Intern(name, id, email, school)
 
     expect(jeff.school).toBe(school);
 })
