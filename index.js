@@ -1,8 +1,14 @@
 //Index is root file
 const inquirer = require('inquirer');
+
+//Imports classes from member file
 import {Manager, Engineer, Intern} from './member.js';
+
+//storage for employee objects
 const employeeList = [];
 
+
+//Following three functions are inquirer sessions to add teammates.
 function managerPrompt(){
     inquirer.prompt([
         {
@@ -31,6 +37,31 @@ function managerPrompt(){
         let M = new Manager(answer.name, answer.id, answer.email, answer.office);
 
         employeeList.push(M);
+    })
+    .then(function(){
+        promptContinue();
+    })
+}
+
+function promptContinue(){
+    inquirer.prompt([{
+        name:'continue',
+        message: 'What would you like to do?',
+        type: 'list',
+        choices: ['Add Engineer', 'Add Intern', 'Finish']
+    }])
+    .then(function (answer) {
+        if(answer.continue == answer.choices[0])
+        { 
+            engineerPrompt();
+        }
+        if(answer.continue == answer.choices[1]){           
+            internPrompt();
+        }
+        if(answer.continue == answer.choices[2])
+        {
+            generateHtml();
+        }
     })
 }
 
@@ -62,6 +93,9 @@ function engineerPrompt(){
         let E = new Engineer(answer.name, answer.id, answer.email, answer.github);
 
         employeeList.push(E);
+    })
+    .then(function(){
+        promptContinue();
     })
     
 }
@@ -95,10 +129,12 @@ function internPrompt(){
 
         employeeList.push(I);
     })
+    .then(function(){
+        promptContinue();
+    })
     
 }
 
-//modulate team objects
 
 //modulate html generation
 
