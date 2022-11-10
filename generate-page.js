@@ -1,5 +1,4 @@
-const fs = require('fs');
-const { format } = require('path');
+import fs from 'fs';
 
 let content = '';
 
@@ -17,6 +16,7 @@ function generateHtml(members){
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Dev Team Page</title>
+            <link rel = "stylesheet" href = "./style.css">
         </head>
         <body id = "body">
             <div id = "main-content">
@@ -25,7 +25,7 @@ function generateHtml(members){
     </body>
     </html>`
 
-
+    return template;
 
 }
 
@@ -37,7 +37,7 @@ function formatMember(member){
             <ul class = "member-info">
                 <li>Name: ${member.name}</li>
                 <li>id: ${member.id}</li>
-                <li>e-mail: ${member.email}</li>
+                <li><a href = "mailto:${member.email}"e-mail: ${member.email}</a></li>
                 <li>office: ${member.office}</li>
             </ul>
         </div>`
@@ -48,8 +48,8 @@ function formatMember(member){
             <ul class = "member-info">
                 <li>Name: ${member.name}</li>
                 <li>id: ${member.id}</li>
-                <li>e-mail: ${member.email}</li>
-                <li>github: ${member.github}</li>
+                <li><a href = "mailto:${member.email}"e-mail: ${member.email}</a></li>
+                <li><a href = "https://github.com/${member.github}">github: ${member.github}</a></li>
             </ul>
         </div>`
 
@@ -60,7 +60,7 @@ function formatMember(member){
             <ul class = "member-info">
                 <li>Name: ${member.name}</li>
                 <li>id: ${member.id}</li>
-                <li>e-mail: ${member.email}</li>
+                <li><a href = "mailto:${member.email}"e-mail: ${member.email}</a></li>
                 <li>school: ${member.school}</li>
             </ul>
         </div>`

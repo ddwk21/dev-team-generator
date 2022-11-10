@@ -1,28 +1,30 @@
-class Manager {
-    constructor(name, id, email, office) {
+class Employee {
+    constructor(name, id, email){
         this.name = name;
         this.id = id;
         this.email = email;
+    }
+}
+
+class Manager extends Employee {
+    constructor(name, id, email, office) {
+        super(name, id, email);
         this.office = office;
     }
 }
 
-class Engineer {
+class Engineer extends Employee {
     constructor(name, id, email, github) {
-        this.name = name;
-        this.id = id;
-        this.email = email;
+        super(name, id, email);
         this.github = github;
     }
 }
 
-class Intern {
+class Intern extends Employee {
     constructor(name, id, email, school) {
-        this.name = name;
-        this.id = id;
-        this.email = email;
+        super(name, id, email);
         this.school = school;
     }
 }
 
-export {Manager, Engineer, Intern};
+export {Employee, Manager, Engineer, Intern};

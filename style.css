@@ -1,0 +1,28 @@
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    color: beige;
+}
+main-content{
+    display: flex;
+    flex-direction: column;
+}
+
+ul{
+    list-style-type: none;
+    background-color: rgb(37, 83, 114);
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px black;
+}
+
+li{
+    text-align: center;
+    margin:1%;
+}
+
+.member-card{
+    margin-bottom:50px;
+    padding:10px;
+    background-color: rgb(27, 143, 104);
+    border-radius: 10px;
+}

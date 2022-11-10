@@ -1,4 +1,6 @@
 //Index is root file
+
+import fs from 'fs';
 import inquirer from 'inquirer';
 
 import generateHtml from './generate-page.js';
@@ -9,7 +11,7 @@ import {Manager, Engineer, Intern} from './member.js';
 //storage for employee objects
 const employeeList = [];
 
-
+let dynamicMarkup = ``;
 
 
 //Following three functions are inquirer sessions to add teammates.
@@ -17,7 +19,7 @@ function managerPrompt(){
     inquirer.prompt([
         {
 
-            name:'memberName',
+            name:'name',
             message:'Team member name: ',
             type:'input',
         },
@@ -27,8 +29,8 @@ function managerPrompt(){
             type:'input',
         },
         {
-            name:'e-mail',
-            message:'employee e-mail: ',
+            name:'email',
+            message:'employee email: ',
             type:'input',
         },
         {
@@ -55,16 +57,16 @@ function promptContinue(){
         choices: ['Add Engineer', 'Add Intern', 'Finish']
     }])
     .then(function (answer) {
-        if(answer.continue == answer.choices[0])
+        if(answer.continue == 'Add Engineer')
         { 
             engineerPrompt();
         }
-        if(answer.continue == answer.choices[1]){           
+        if(answer.continue == 'Add Intern'){           
             internPrompt();
         }
-        if(answer.continue == answer.choices[2])
+        if(answer.continue == 'Finish')
         {
-            generateHtml();
+            buildFile();
         }
     })
 }
@@ -73,7 +75,7 @@ function engineerPrompt(){
     inquirer.prompt([
         {
 
-            name:'memberName',
+            name:'name',
             message:'Team member name: ',
             type:'input',
         },
@@ -83,8 +85,8 @@ function engineerPrompt(){
             type:'input',
         },
         {
-            name:'e-mail',
-            message:'employee e-mail: ',
+            name:'email',
+            message:'employee email: ',
             type:'input',
         },
         {
@@ -108,7 +110,7 @@ function internPrompt(){
     inquirer.prompt([
         {
 
-            name:'memberName',
+            name:'name',
             message:'Team member name: ',
             type:'input',
         },
@@ -118,8 +120,8 @@ function internPrompt(){
             type:'input',
         },
         {
-            name:'e-mail',
-            message:'employee e-mail: ',
+            name:'email',
+            message:'employee email: ',
             type:'input',
         },
         {
@@ -139,7 +141,11 @@ function internPrompt(){
     
 }
 
+function buildFile() {
+    fs.writeFileSync('./index.html',generateHtml(employeeList),'utf-8')
+}
 
+managerPrompt();
 //modulate html generation
 
 //
