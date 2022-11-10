@@ -18,3 +18,19 @@ test('Manager object instantiates with its extended property', () => {
 
     expect(jeff.office).toBe(office);
 })
+
+test('Engineer object instantiates with its extended property', () => {
+    const github = jeffhub;
+
+    let jeff = new Engineer(name, id, email, github)
+
+    expect(jeff.github).toBe(github);
+})
+
+test('Intern object instantiates with its extended property', () => {
+    const school = jeffacademy;
+
+    let jeff = new Engineer(name, id, email, school)
+
+    expect(jeff.school).toBe(school);
+})
