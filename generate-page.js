@@ -37,7 +37,7 @@ function formatMember(member){
             <ul class = "member-info">
                 <li>Name: ${member.name}</li>
                 <li>id: ${member.id}</li>
-                <li><a href = "mailto:${member.email}"e-mail: ${member.email}</a></li>
+                <li><a href = "mailto:${member.email}">e-mail: ${member.email}</a></li>
                 <li>office: ${member.office}</li>
             </ul>
         </div>`
@@ -48,7 +48,7 @@ function formatMember(member){
             <ul class = "member-info">
                 <li>Name: ${member.name}</li>
                 <li>id: ${member.id}</li>
-                <li><a href = "mailto:${member.email}"e-mail: ${member.email}</a></li>
+                <li><a href = "mailto:${member.email}">e-mail: ${member.email}</a></li>
                 <li><a href = "https://github.com/${member.github}">github: ${member.github}</a></li>
             </ul>
         </div>`
@@ -60,7 +60,7 @@ function formatMember(member){
             <ul class = "member-info">
                 <li>Name: ${member.name}</li>
                 <li>id: ${member.id}</li>
-                <li><a href = "mailto:${member.email}"e-mail: ${member.email}</a></li>
+                <li><a href = "mailto:${member.email}">e-mail: ${member.email}</a></li>
                 <li>school: ${member.school}</li>
             </ul>
         </div>`
