@@ -1,9 +1,13 @@
 const fs = require('fs');
+const { format } = require('path');
 
 let content = '';
 
 function generateHtml(members){
 
+    for(let i = 0; i<members.length; i++){
+        content += formatMember(members[i]);
+    }
 
     const template = `
         <!DOCTYPE html>
@@ -18,7 +22,10 @@ function generateHtml(members){
             <div id = "main-content">
                 ${content}
             </div>
-    </body>`
+    </body>
+    </html>`
+
+
 
 }
 
@@ -62,3 +69,5 @@ function formatMember(member){
 
     return markUp
 }
+
+export default generateHtml

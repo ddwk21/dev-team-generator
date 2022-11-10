@@ -1,11 +1,15 @@
 //Index is root file
-const inquirer = require('inquirer');
+import inquirer from 'inquirer';
+
+import generateHtml from './generate-page.js';
 
 //Imports classes from member file
 import {Manager, Engineer, Intern} from './member.js';
 
 //storage for employee objects
 const employeeList = [];
+
+
 
 
 //Following three functions are inquirer sessions to add teammates.
